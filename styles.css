@@ -149,6 +149,7 @@ ul {
 .botao-acao{
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 
