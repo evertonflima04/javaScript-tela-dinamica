@@ -28,6 +28,17 @@ function adicionarItem(evento){
     const checkLabel = document.createElement("label")
     checkLabel.setAttribute("for", checkInput.id)
 
+    checkLabel.addEventListener("click", function(evento) {
+        const checkInput = evento.currentTarget.querySelector('.checkbox-input')
+        const checkCustumizado = evento.currentTarget.querySelector('.checkbox-customizado')
+
+        if (checkInput.checked){
+            checkCustumizado.classList.add("checked")
+        } else {
+            checkCustumizado.classList.remove("checked")
+        }
+    })
+
     const checkCustumizado = document.createElement("div")
     checkCustumizado.classList.add("checkbox-customizado")
 
