@@ -84,6 +84,18 @@ function adicionarItem(evento){
 
     containerItemLista.appendChild(containerNomeDoItem)
     containerItemLista.appendChild(containerBotao)
+
+    const itemData = document.createElement("p")
+
+    /*Formatando o tipo da data para brasileiro || (weekday: long) vai mostrar o nome compreto (segunda-feira)
+    || new Date().toLocaleDateString() (Mostra a data atual)
+    || new Date().toLocaleTimeString("pt-BR", {hour: "numeric", minute: "numeric") (Devolve o horário atual - somente a hora e os minutos)
+    */
+
+    itemData.innerText = `${new Date().toLocaleDateString("pt-BR", { weekday: "long"})} (${ new Date().toLocaleDateString()}) às ${new Date().toLocaleTimeString("pt-BR", {hour: "numeric", minute: "numeric"})}`;
+    itemData.classList.add("texto-data")
+
     itemDaLista.appendChild(containerItemLista)  // adicionado a div dentro de lista(li)
+    itemDaLista.appendChild(itemData)
     listaDeCompras.appendChild(itemDaLista)
 } 
