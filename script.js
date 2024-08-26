@@ -1,6 +1,7 @@
 const item = document.querySelector('.inputItem')
 const botaoSalvarItem = document.querySelector('.adicionarItem')
 const listaDeCompras = document.getElementById('lista-de-compras')
+let contador = 0
 
 botaoSalvarItem.addEventListener('click', adicionarItem)
 
@@ -14,6 +15,29 @@ function adicionarItem(evento){
     containerItemLista.classList.add("item-lista-container")  // colocando a class na nossa div
     
     const containerNomeDoItem = document.createElement("div")
+    containerNomeDoItem.classList.add("container-nome-item")
+
+    const containerCheckbox = document.createElement("div")
+    containerCheckbox.classList.add("checkbox-container")
+
+    const checkInput = document.createElement("input")
+    checkInput.type = "checkbox"
+    checkInput.classList.add("checkbox-input")
+    checkInput.id = "checkbox-" + contador++
+
+    const checkLabel = document.createElement("label")
+    checkLabel.setAttribute("for", checkInput.id)
+
+    const checkCustumizado = document.createElement("div")
+    checkCustumizado.classList.add("checkbox-customizado")
+
+    checkLabel.appendChild(checkInput)
+    checkLabel.appendChild(checkCustumizado)
+
+    containerCheckbox.appendChild(checkLabel)
+    containerNomeDoItem.appendChild(containerCheckbox)
+
+
     const nomeDoItem = document.createElement("p")
     nomeDoItem.innerText = item.value  //Assim vou alterar o "p" para o valor que for digitado pelo o usuário
     containerNomeDoItem.appendChild(nomeDoItem)  //Adicionado o "p" para dentro da div
