@@ -1,6 +1,8 @@
 const item = document.querySelector('.inputItem')
 const botaoSalvarItem = document.querySelector('.adicionarItem')
 const listaDeCompras = document.getElementById('lista-de-compras')
+const listaComprados = document.getElementById('lista-comprados')
+
 let contador = 0
 
 botaoSalvarItem.addEventListener('click', adicionarItem)
@@ -31,11 +33,16 @@ function adicionarItem(evento){
     checkLabel.addEventListener("click", function(evento) {
         const checkInput = evento.currentTarget.querySelector('.checkbox-input')
         const checkCustumizado = evento.currentTarget.querySelector('.checkbox-customizado')
+        const itemTitulo = evento.currentTarget.closest("li").querySelector('#item-titulo')
 
         if (checkInput.checked){
             checkCustumizado.classList.add("checked")
+            itemTitulo.style.textDecoration = "line-through"
+            listaComprados.appendChild(itemDaLista)
         } else {
             checkCustumizado.classList.remove("checked")
+            itemTitulo.style.textDecoration = "none"
+            listaDeCompras.appendChild(itemDaLista)
         }
     })
 
@@ -50,6 +57,7 @@ function adicionarItem(evento){
 
 
     const nomeDoItem = document.createElement("p")
+    nomeDoItem.id = "item-titulo"
     nomeDoItem.innerText = item.value  //Assim vou alterar o "p" para o valor que for digitado pelo o usuário
     containerNomeDoItem.appendChild(nomeDoItem)  //Adicionado o "p" para dentro da div
 
