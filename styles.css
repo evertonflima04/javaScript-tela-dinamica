@@ -30,11 +30,12 @@ main {
 
     display: flex;
     flex-direction: column;
-    align-items: center ;
     gap: 24px;
 
     width: 440px;
     padding: 56px;
+
+    align-items: center;
     border-radius: 16px;
 }
 
@@ -50,7 +51,6 @@ hr {
     border: none;
     border-bottom: 3px dotted var(--cor-primaria);
     margin-bottom: 24px;
-    width: 100%;
 }
 
 p {
@@ -106,7 +106,7 @@ form {
 
 ul {
     list-style-type: none;  /* REMOVENDO O ESTILO PADRÃO DO ul*/
-    width: 100%;
+
 }
 
 .texto-data{
@@ -151,6 +151,10 @@ ul {
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.container-lista {
+    width: 100%;
 }
 
 

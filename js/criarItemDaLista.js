@@ -1,5 +1,9 @@
+import { editarItem } from "./editarItem.js"
 import { excluirItem } from "./excluirItem.js"
+import { horaEData } from "./horaEData.js"
 import { verficarListaComprados } from "./verificarComprados.js"
+
+
 const listaDeCompras = document.getElementById('lista-de-compras')
 const listaComprados = document.getElementById('lista-comprados')
 let contador = 0
@@ -78,6 +82,10 @@ export function criarItemDaLista(item){
     imgEditar.src = "img/edit.svg"
     imgEditar.alt = "Editar"
 
+    botaoEditar.addEventListener('click', () => {
+        editarItem(itemDaLista)
+    })
+
     botaoRemover.appendChild(imgRemover)
     botaoEditar.appendChild(imgEditar)
     containerBotao.appendChild(botaoRemover)
@@ -94,7 +102,7 @@ export function criarItemDaLista(item){
     || new Date().toLocaleTimeString("pt-BR", {hour: "numeric", minute: "numeric") (Devolve o horário atual - somente a hora e os minutos)
     */
 
-    itemData.innerText = `${new Date().toLocaleDateString("pt-BR", { weekday: "long"})} (${ new Date().toLocaleDateString()}) às ${new Date().toLocaleTimeString("pt-BR", {hour: "numeric", minute: "numeric"})}`;
+    itemData.innerText = horaEData()
     itemData.classList.add("texto-data")
 
     itemDaLista.appendChild(containerItemLista)  // adicionado a div dentro de lista(li)
