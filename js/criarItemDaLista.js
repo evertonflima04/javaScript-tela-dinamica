@@ -1,4 +1,6 @@
-
+import { excluirItem } from "./excluirItem.js"
+import { verficarListaComprados } from "./verificarComprados.js"
+const listaDeCompras = document.getElementById('lista-de-compras')
 const listaComprados = document.getElementById('lista-comprados')
 let contador = 0
 
@@ -38,6 +40,8 @@ export function criarItemDaLista(item){
             itemTitulo.style.textDecoration = "none"
             listaDeCompras.appendChild(itemDaLista)
         }
+
+        verficarListaComprados(listaComprados)
     })
 
     const checkCustumizado = document.createElement("div")
@@ -65,6 +69,10 @@ export function criarItemDaLista(item){
     const imgRemover = document.createElement("img")
     imgRemover.src = "img/delete.svg"  //adicionando imagem elemento img
     imgRemover.alt = "Remover"
+
+    botaoRemover.addEventListener('click', () => {
+        excluirItem(itemDaLista)
+    } )
 
     const imgEditar = document.createElement("img")
     imgEditar.src = "img/edit.svg"
